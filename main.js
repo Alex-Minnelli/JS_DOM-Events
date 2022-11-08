@@ -77,5 +77,22 @@ parent4.appendChild(ulist);
 // BONUS: The modal popup should be able to be closed. Refactor for this functionality
 
 function show(){
-    alert('Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user');
+    const modalDiv = document.createElement('div');
+    const modalCard = document.createElement('div');
+    const closeModalBtn = document.createElement('button');
+
+
+    modalDiv.id = 'modal';
+    modalCard.classList.add('modal-card')
+    modalCard.textContent = 'Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user';
+    closeModalBtn.text = 'x';
+    closeModalBtn.addEventListener('click', () => {
+        modalDiv.remove();
+        modalCard.remove();
+    })
+
+
+    modalDiv.appendChild(modalCard);
+    modalCard.appendChild(closeModalBtn);
+    document.querySelector('body').appendChild(modalDiv);
 }
